@@ -1,0 +1,26 @@
+{
+  "name": "cookbook-api",
+  "version": "0.0.1",
+  "description": "Backend API for the React Cookbook app",
+  "main": "server.js",
+  "scripts": {
+      "start": "nodemon server.js",
+    "test": "test"
+  },
+  "author": "Alex Scherer <alex.scherer@outlook.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-form-data": "^2.0.14",
+    "fs": "0.0.1-security",
+    "joi": "^17.3.0",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.15",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
