@@ -52,7 +52,7 @@ exports.new = function (req, res) {
     }
 
 
-    if (req.body.ingredients !== undefined) {
+    if (req.body.ingredients !== undefined && req.body.ingredients !== 'undefined') {
         if (req.body.ingredients.length > 0) {
             let ingredients = JSON.parse(req.body.ingredients);
             ingredients.forEach(function (ingredient, index) {
@@ -66,7 +66,7 @@ exports.new = function (req, res) {
         }
     }
 
-    if (req.body.steps !== undefined) {
+    if (req.body.steps !== undefined && req.body.steps !== 'undefined') {
         if (req.body.steps.length > 0) {
             let steps = JSON.parse(req.body.steps);
             steps.forEach(function (step, index) {
