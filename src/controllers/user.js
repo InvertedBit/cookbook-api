@@ -5,10 +5,12 @@ exports.create = async function (req, res) {
         const user = new User(req.body);
         await user.save();
         const token = await user.generateAuthToken();
+        let responseUser = ({...user}._doc);
+        delete responseUser.password;
         res.status(201).json({
             status: 'success',
             data: {
-                user: user,
+                user: responseUser,
                 token: token
             }
         });
@@ -32,10 +34,12 @@ exports.login = async function (req, res) {
             });
         }
         const token = await user.generateAuthToken();
+        let responseUser = ({...user}._doc);
+        delete responseUser.password;
         res.json({
             status: 'success',
             data: {
-                user: user,
+                user: responseUser,
                 token: token
             }
         });
@@ -48,13 +52,15 @@ exports.login = async function (req, res) {
 }
 
 exports.get = function (req, res) {
+    let user = ({...req.user}._doc);
+    delete user.password;
     res.json({
         status: 'success',
-        data: req.user
+        data: user
     });
 }
 
-exports.logout = function (req, res) {
+exports.logout = async function (req, res) {
     try {
         req.user.tokens = req.user.tokens.filter(token => token.token !== req.token);
         await req.user.save();
@@ -70,7 +76,7 @@ exports.logout = function (req, res) {
     }
 }
 
-exports.logoutAll = function (req, res) {
+exports.logoutAll = async function (req, res) {
     try {
         req.user.tokens.splice(0, req.user.tokens.length);
         await req.user.save();

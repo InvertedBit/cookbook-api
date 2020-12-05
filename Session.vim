@@ -24,8 +24,8 @@ badd +56 src/controllers/image.js
 badd +0 src/models/recipe.js
 badd +0 src/models/image.js
 badd +0 src/controllers/userController.js
-badd +78 src/controllers/user.js
-badd +54 src/models/user.js
+badd +13 src/controllers/user.js
+badd +51 src/models/user.js
 badd +6 src/middleware/auth.js
 argglobal
 %argdel
@@ -48,11 +48,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 150 - ((55 * winheight(0) + 28) / 56)
+let s:l = 586 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-150
+586
 normal! 057|
 tabedit package.json
 set splitbelow splitright
@@ -73,12 +73,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 28) / 56)
+let s:l = 28 - ((27 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 042|
+28
+normal! 025|
 tabedit .env
 set splitbelow splitright
 set nosplitbelow
@@ -173,12 +173,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 28) / 56)
+let s:l = 18 - ((17 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
-normal! 09|
+18
+normal! 022|
 tabedit src/controllers/user.js
 set splitbelow splitright
 set nosplitbelow
@@ -198,12 +198,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 87 - ((55 * winheight(0) + 28) / 56)
+let s:l = 8 - ((7 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-87
-normal! 0
+8
+normal! 031|
 tabedit src/models/user.js
 set splitbelow splitright
 set nosplitbelow
@@ -223,11 +223,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 54 - ((37 * winheight(0) + 28) / 56)
+let s:l = 44 - ((18 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-54
+44
 normal! 05|
 tabedit src/controllers/recipe.js
 set splitbelow splitright
@@ -248,12 +248,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 207 - ((55 * winheight(0) + 28) / 56)
+let s:l = 198 - ((46 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-207
-normal! 0
+198
+normal! 016|
 tabedit src/controllers/image.js
 set splitbelow splitright
 set nosplitbelow
