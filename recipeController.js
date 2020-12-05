@@ -1,22 +1,42 @@
 const Recipe = require('./recipeModel');
+const Image = require('./imageModel');
 const staticDir = 'static/';
 const imageDir = 'uploads/images/';
 const fs = require('fs');
 
 exports.index = function (req, res) {
-    Recipe.get(function (err, recipes) {
-        if (err) {
-            res.json({
-                status: "error",
-                message: err
-            });
-        }
+    Recipe.find().populate('images').populate('thumbnail').exec(function (err, recipes) {
+        // if (err) {
+        //     res.json({
+        //         status: "error",
+        //         message: err
+        //     });
+        // }
         res.json({
             status: "success",
-            messaage: "Recipes retrieved successfully",
+            message: "Recipes retrieved successfully",
             data: recipes
         });
     });
+    // Recipe.get(function (err, recipes) {
+    //     if (err) {
+    //         res.json({
+    //             status: "error",
+    //             message: err
+    //         });
+    //     }
+    //     let populatedRecipes = [];
+    //     recipes.forEach(function (recipe, index) {
+    //         recipe.populate('images').populate('thumbnail').exec(function (err, populatedRecipe) {
+    //             populatedRecipes.push(populatedRecipe);
+    //         });
+    //     });
+    //     res.json({
+    //         status: "success",
+    //         messaage: "Recipes retrieved successfully",
+    //         data: populatedRecipes
+    //     });
+    // });
 }
 
 exports.new = function (req, res) {
@@ -28,28 +48,54 @@ exports.new = function (req, res) {
     recipe.name = req.body.name ? req.body.name : recipe.name;
     recipe.description = req.body.description ? req.body.description : recipe.description;
 
+    recipe.images = [];
+
+    if (req.body.images !== undefined) {
+        let images = JSON.parse(req.body.images);
+        recipe.images = images;
+        // images.forEach(function (image, index) {
+        //     Image.findOne({ _id: image }, function(error, foundImage) {
+        //         if (error) {
+        //             console.log(error);
+        //             return;
+        //         }
+        //         recipe.images.push(foundImage._id);
+        //     });
+        // }, recipe);
+    }
+
+    if (req.body.thumbnail !== undefined) {
+        recipe.thumbnail = req.body.thumbnail;
+        // Image.findOne({ _id: req.body.thumbnail }, function(error, foundImage) {
+        //     if (error) {
+        //         console.log(error);
+        //         return;
+        //     }
+        //     recipe.thumbnail = foundImage._id;
+        // });
+    }
 
     // recipe.images = [];
-    if (req.files !== undefined && req.files.length > 0) {
-        let images = Object.values(req.files);
-        if (images.length > 0) {
-            images.forEach(function (image, index) {
-                let imageData = fs.readFileSync(image.path);
-                let recipeImgDir = imageDir + recipe.name.replace(/[\W_]/g, "_").toLowerCase();
-                let newPath =  recipeImgDir + "/" + image.originalFilename;
+    // if (req.files !== undefined && req.files.length > 0) {
+    //     let images = Object.values(req.files);
+    //     if (images.length > 0) {
+    //         images.forEach(function (image, index) {
+    //             let imageData = fs.readFileSync(image.path);
+    //             let recipeImgDir = imageDir + recipe.name.replace(/[\W_]/g, "_").toLowerCase();
+    //             let newPath =  recipeImgDir + "/" + image.originalFilename;
                 
-                let imageObject = {
-                    path: newPath,
-                    type: image.type,
-                    thumbnail: parseInt(req.body.defaultImage) === index
-                };
-                console.log(imageObject, recipe);
-                fs.mkdirSync(staticDir + recipeImgDir, { recursive: true });
-                fs.writeFileSync(staticDir + newPath, imageData);
-                recipe.images.push(imageObject);
-            }, recipe, req);
-        }
-    }
+    //             let imageObject = {
+    //                 path: newPath,
+    //                 type: image.type,
+    //                 thumbnail: parseInt(req.body.defaultImage) === index
+    //             };
+    //             console.log(imageObject, recipe);
+    //             fs.mkdirSync(staticDir + recipeImgDir, { recursive: true });
+    //             fs.writeFileSync(staticDir + newPath, imageData);
+    //             recipe.images.push(imageObject);
+    //         }, recipe, req);
+    //     }
+    // }
 
 
     if (req.body.ingredients !== undefined && req.body.ingredients !== 'undefined') {

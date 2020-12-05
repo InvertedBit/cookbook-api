@@ -43,7 +43,8 @@ let recipeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    images: [imageSchema],
+    images: [{ type: mongoose.Schema.Types.ObjectId, ref: 'image' }],
+    thumbnail: { type: mongoose.Schema.Types.ObjectId, ref: 'image' },
     servings: Number,
     ingredients: [ingredientSchema],
     steps: [stepSchema],
