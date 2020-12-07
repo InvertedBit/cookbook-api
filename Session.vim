@@ -49,11 +49,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1043 - ((55 * winheight(0) + 28) / 56)
+let s:l = 1208 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1043
+1208
 normal! 058|
 tabedit package.json
 set splitbelow splitright
@@ -74,12 +74,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 23 - ((22 * winheight(0) + 28) / 56)
+let s:l = 7 - ((6 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-23
-normal! 027|
+7
+normal! 037|
 tabedit .env
 set splitbelow splitright
 set nosplitbelow
