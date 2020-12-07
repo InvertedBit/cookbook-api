@@ -3,8 +3,17 @@ const recipeController = require('../controllers/recipe');
 const imageController = require('../controllers/image');
 const userController = require('../controllers/user');
 const auth = require('../middleware/auth');
+const fs = require('fs');
+const {function} = require('joi');
 
 router.get('/', function (req, res) {
+    fs.realpath('./api.js', function(res) {
+        res.json({
+            'status': 'success',
+            message: res;
+        });
+        return;
+    });
     res.json({
         status: 'API is working!',
         message: 'Welcome to the cookbook API!'

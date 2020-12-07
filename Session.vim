@@ -18,7 +18,7 @@ badd +73 userModel.js
 badd +3 .env
 badd +0 package.json
 badd +25 src/server.js
-badd +16 src/routes/api.js
+badd +13 src/routes/api.js
 badd +1 src/controllers/recipe.js
 badd +56 src/controllers/image.js
 badd +0 src/models/recipe.js
@@ -28,6 +28,7 @@ badd +13 src/controllers/user.js
 badd +51 src/models/user.js
 badd +20 src/middleware/auth.js
 badd +0 captain-definition
+badd +0 ./.env.sample
 argglobal
 %argdel
 $argadd server.js
@@ -49,12 +50,37 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1208 - ((55 * winheight(0) + 28) / 56)
+let s:l = 1579 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1208
+1579
 normal! 058|
+tabedit ./.env.sample
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 28) / 56)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 tabedit package.json
 set splitbelow splitright
 set nosplitbelow
@@ -74,12 +100,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 28) / 56)
+let s:l = 24 - ((19 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 037|
+24
+normal! 027|
 tabedit .env
 set splitbelow splitright
 set nosplitbelow
@@ -174,11 +200,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 16 - ((15 * winheight(0) + 28) / 56)
+let s:l = 15 - ((14 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
+15
 normal! 015|
 tabedit src/middleware/auth.js
 set splitbelow splitright
@@ -274,7 +300,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 172 - ((20 * winheight(0) + 28) / 56)
+let s:l = 172 - ((19 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -299,12 +325,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 56 - ((10 * winheight(0) + 28) / 56)
+let s:l = 5 - ((4 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-56
-normal! 027|
+5
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
