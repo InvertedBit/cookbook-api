@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const formData = require('express-form-data');
 const bodyParser = require('body-parser');
-const mongodbUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017/cookbook';
+const mongodbUrl = process.env.MONGODB_URL;
 const apiRoutes = require('./routes/api');
 
 // const readline = require('readline').createInterface({

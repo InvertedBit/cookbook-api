@@ -17,7 +17,7 @@ badd +0 term://.//64352:/usr/bin/bash
 badd +73 userModel.js
 badd +3 .env
 badd +0 package.json
-badd +22 src/server.js
+badd +25 src/server.js
 badd +16 src/routes/api.js
 badd +1 src/controllers/recipe.js
 badd +56 src/controllers/image.js
@@ -49,12 +49,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 601 - ((55 * winheight(0) + 28) / 56)
+let s:l = 1043 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-601
-normal! 056|
+1043
+normal! 058|
 tabedit package.json
 set splitbelow splitright
 set nosplitbelow
@@ -149,12 +149,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 20 - ((19 * winheight(0) + 28) / 56)
+let s:l = 8 - ((7 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
-normal! 024|
+8
+normal! 043|
 tabedit src/routes/api.js
 set splitbelow splitright
 set nosplitbelow
@@ -224,12 +224,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 28) / 56)
+let s:l = 2 - ((1 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 031|
+2
+normal! 0
 tabedit src/models/user.js
 set splitbelow splitright
 set nosplitbelow
