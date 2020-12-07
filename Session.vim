@@ -50,11 +50,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1670 - ((55 * winheight(0) + 28) / 56)
+let s:l = 1752 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1670
+1752
 normal! 058|
 tabedit ./.env.sample
 set splitbelow splitright
@@ -200,12 +200,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 28) / 56)
+let s:l = 12 - ((11 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 0
+12
+normal! 024|
 tabedit src/middleware/auth.js
 set splitbelow splitright
 set nosplitbelow

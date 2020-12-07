@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
     fs.realpath('./api.js', function(res) {
         res.json({
             'status': 'success',
-            message: res;
+            message: res
         });
         return;
     });
