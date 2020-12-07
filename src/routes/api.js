@@ -6,10 +6,10 @@ const auth = require('../middleware/auth');
 const fs = require('fs');
 
 router.get('/', function (req, res) {
-    fs.realpath('./api.js', function(res) {
+    fs.realpath('./api.js', function(result) {
         res.json({
             'status': 'success',
-            message: res
+            message: result
         });
         return;
     });
