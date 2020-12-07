@@ -4,7 +4,6 @@ const imageController = require('../controllers/image');
 const userController = require('../controllers/user');
 const auth = require('../middleware/auth');
 const fs = require('fs');
-const {function} = require('joi');
 
 router.get('/', function (req, res) {
     fs.realpath('./api.js', function(res) {
