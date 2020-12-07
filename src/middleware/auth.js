@@ -15,6 +15,8 @@ const auth = async(req, res, next) => {
         if (!user) {
             throw new Error();
         }
+        user.tokens.find(t => t.token === token).lastUse = Date.now();
+        await user.save();
         req.user = user;
         req.token = token;
         next();

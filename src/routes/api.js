@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
 
 // Recipe routes
 router.route('/recipes')
-    .get(recipeController.index)
+    .get(auth, recipeController.index)
     .post(recipeController.new);
 
 router.route('/recipes/:recipe_id')

@@ -18,7 +18,7 @@ badd +73 userModel.js
 badd +3 .env
 badd +0 package.json
 badd +22 src/server.js
-badd +50 src/routes/api.js
+badd +16 src/routes/api.js
 badd +1 src/controllers/recipe.js
 badd +56 src/controllers/image.js
 badd +0 src/models/recipe.js
@@ -26,7 +26,8 @@ badd +0 src/models/image.js
 badd +0 src/controllers/userController.js
 badd +13 src/controllers/user.js
 badd +51 src/models/user.js
-badd +6 src/middleware/auth.js
+badd +20 src/middleware/auth.js
+badd +0 captain-definition
 argglobal
 %argdel
 $argadd server.js
@@ -48,12 +49,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 586 - ((55 * winheight(0) + 28) / 56)
+let s:l = 601 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-586
-normal! 057|
+601
+normal! 056|
 tabedit package.json
 set splitbelow splitright
 set nosplitbelow
@@ -73,12 +74,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 28 - ((27 * winheight(0) + 28) / 56)
+let s:l = 23 - ((22 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-28
-normal! 025|
+23
+normal! 027|
 tabedit .env
 set splitbelow splitright
 set nosplitbelow
@@ -104,6 +105,31 @@ exe s:l
 normal! zt
 4
 normal! 058|
+tabedit captain-definition
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 28) / 56)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 tabedit src/server.js
 set splitbelow splitright
 set nosplitbelow
@@ -148,12 +174,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 50 - ((49 * winheight(0) + 28) / 56)
+let s:l = 16 - ((15 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-50
-normal! 016|
+16
+normal! 015|
 tabedit src/middleware/auth.js
 set splitbelow splitright
 set nosplitbelow
@@ -173,12 +199,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 28) / 56)
+let s:l = 20 - ((19 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 022|
+20
+normal! 09|
 tabedit src/controllers/user.js
 set splitbelow splitright
 set nosplitbelow
@@ -198,11 +224,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 8 - ((7 * winheight(0) + 28) / 56)
+let s:l = 7 - ((6 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
+7
 normal! 031|
 tabedit src/models/user.js
 set splitbelow splitright
@@ -223,12 +249,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 44 - ((18 * winheight(0) + 28) / 56)
+let s:l = 44 - ((43 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 44
-normal! 05|
+normal! 0
 tabedit src/controllers/recipe.js
 set splitbelow splitright
 set nosplitbelow
@@ -248,12 +274,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 198 - ((46 * winheight(0) + 28) / 56)
+let s:l = 172 - ((20 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-198
-normal! 016|
+172
+normal! 013|
 tabedit src/controllers/image.js
 set splitbelow splitright
 set nosplitbelow
