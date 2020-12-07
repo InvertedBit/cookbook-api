@@ -6,13 +6,14 @@ const auth = require('../middleware/auth');
 const fs = require('fs');
 
 router.get('/', function (req, res) {
-    fs.realpath('./api.js', function(result) {
+    fs.realpath('./api.js', function(err, result) {
         res.json({
             'status': 'success',
             message: result
         });
         return;
     });
+    return;
     res.json({
         status: 'API is working!',
         message: 'Welcome to the cookbook API!'

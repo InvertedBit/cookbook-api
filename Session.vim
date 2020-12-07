@@ -18,7 +18,7 @@ badd +73 userModel.js
 badd +3 .env
 badd +0 package.json
 badd +25 src/server.js
-badd +10 src/routes/api.js
+badd +9 src/routes/api.js
 badd +1 src/controllers/recipe.js
 badd +56 src/controllers/image.js
 badd +0 src/models/recipe.js
@@ -50,11 +50,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1834 - ((55 * winheight(0) + 28) / 56)
+let s:l = 1916 - ((55 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1834
+1916
 normal! 058|
 tabedit ./.env.sample
 set splitbelow splitright
@@ -200,12 +200,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 28) / 56)
+let s:l = 9 - ((8 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 027|
+9
+normal! 041|
 tabedit src/middleware/auth.js
 set splitbelow splitright
 set nosplitbelow
