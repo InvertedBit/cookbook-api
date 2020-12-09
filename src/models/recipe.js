@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 let imageSchema = mongoose.Schema({
     path: String,
     type: String,
@@ -42,6 +43,10 @@ let recipeSchema = mongoose.Schema({
     description: {
         type: String,
         required: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     },
     images: [{ type: mongoose.Schema.Types.ObjectId, ref: 'image' }],
     thumbnail: { type: mongoose.Schema.Types.ObjectId, ref: 'image' },

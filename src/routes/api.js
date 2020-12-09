@@ -3,17 +3,8 @@ const recipeController = require('../controllers/recipe');
 const imageController = require('../controllers/image');
 const userController = require('../controllers/user');
 const auth = require('../middleware/auth');
-const fs = require('fs');
 
 router.get('/', function (req, res) {
-    fs.realpath('./', function(err, result) {
-        res.json({
-            'status': 'success',
-            message: result
-        });
-        return;
-    });
-    return;
     res.json({
         status: 'API is working!',
         message: 'Welcome to the cookbook API!'
@@ -23,13 +14,13 @@ router.get('/', function (req, res) {
 // Recipe routes
 router.route('/recipes')
     .get(auth, recipeController.index)
-    .post(recipeController.new);
+    .post(auth, recipeController.new);
 
 router.route('/recipes/:recipe_id')
-    .get(recipeController.view)
-    .patch(recipeController.update)
-    .put(recipeController.update)
-    .delete(recipeController.delete);
+    .get(auth, recipeController.view)
+    .patch(auth, recipeController.update)
+    .put(auth, recipeController.update)
+    .delete(auth, recipeController.delete);
 
 // Image routes
 router.route('/images')

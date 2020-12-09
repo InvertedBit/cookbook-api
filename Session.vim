@@ -18,10 +18,10 @@ badd +73 userModel.js
 badd +3 .env
 badd +0 package.json
 badd +25 src/server.js
-badd +9 src/routes/api.js
-badd +1 src/controllers/recipe.js
+badd +23 src/routes/api.js
+badd +118 src/controllers/recipe.js
 badd +56 src/controllers/image.js
-badd +0 src/models/recipe.js
+badd +48 src/models/recipe.js
 badd +0 src/models/image.js
 badd +0 src/controllers/userController.js
 badd +13 src/controllers/user.js
@@ -50,12 +50,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1998 - ((55 * winheight(0) + 28) / 56)
+let s:l = 2080 - ((12 * winheight(0) + 6) / 13)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1998
-normal! 058|
+2080
+normal! 0
 tabedit ./.env.sample
 set splitbelow splitright
 set nosplitbelow
@@ -100,12 +100,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 24 - ((19 * winheight(0) + 28) / 56)
+let s:l = 7 - ((6 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 027|
+7
+normal! 015|
 tabedit .env
 set splitbelow splitright
 set nosplitbelow
@@ -200,12 +200,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 9 - ((8 * winheight(0) + 28) / 56)
+let s:l = 15 - ((14 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-9
-normal! 019|
+15
+normal! 09|
 tabedit src/middleware/auth.js
 set splitbelow splitright
 set nosplitbelow
@@ -300,12 +300,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 172 - ((19 * winheight(0) + 28) / 56)
+let s:l = 103 - ((12 * winheight(0) + 6) / 13)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-172
-normal! 013|
+103
+normal! 07|
 tabedit src/controllers/image.js
 set splitbelow splitright
 set nosplitbelow
@@ -330,6 +330,56 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 5
+normal! 0
+tabedit src/models/recipe.js
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 49 - ((38 * winheight(0) + 28) / 56)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+49
+normal! 019|
+tabedit src/models/user.js
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 28) / 56)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

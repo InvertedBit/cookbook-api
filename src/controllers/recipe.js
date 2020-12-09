@@ -5,7 +5,7 @@ const imageDir = 'uploads/images/';
 const fs = require('fs');
 
 exports.index = function (req, res) {
-    Recipe.find().populate('images').populate('thumbnail').exec(function (err, recipes) {
+    Recipe.find({ user: req.user._id }).populate('images').populate('thumbnail').exec(function (err, recipes) {
         // if (err) {
         //     res.json({
         //         status: "error",
@@ -40,62 +40,22 @@ exports.index = function (req, res) {
 }
 
 exports.new = function (req, res) {
-    console.log(req.files);
-    console.log(req.body);
 
-    
     var recipe = new Recipe();
     recipe.name = req.body.name ? req.body.name : recipe.name;
     recipe.description = req.body.description ? req.body.description : recipe.description;
+    recipe.user = req.user._id;
 
     recipe.images = [];
 
     if (req.body.images !== undefined) {
         let images = JSON.parse(req.body.images);
         recipe.images = images;
-        // images.forEach(function (image, index) {
-        //     Image.findOne({ _id: image }, function(error, foundImage) {
-        //         if (error) {
-        //             console.log(error);
-        //             return;
-        //         }
-        //         recipe.images.push(foundImage._id);
-        //     });
-        // }, recipe);
     }
 
     if (req.body.thumbnail !== undefined) {
         recipe.thumbnail = req.body.thumbnail;
-        // Image.findOne({ _id: req.body.thumbnail }, function(error, foundImage) {
-        //     if (error) {
-        //         console.log(error);
-        //         return;
-        //     }
-        //     recipe.thumbnail = foundImage._id;
-        // });
     }
-
-    // recipe.images = [];
-    // if (req.files !== undefined && req.files.length > 0) {
-    //     let images = Object.values(req.files);
-    //     if (images.length > 0) {
-    //         images.forEach(function (image, index) {
-    //             let imageData = fs.readFileSync(image.path);
-    //             let recipeImgDir = imageDir + recipe.name.replace(/[\W_]/g, "_").toLowerCase();
-    //             let newPath =  recipeImgDir + "/" + image.originalFilename;
-                
-    //             let imageObject = {
-    //                 path: newPath,
-    //                 type: image.type,
-    //                 thumbnail: parseInt(req.body.defaultImage) === index
-    //             };
-    //             console.log(imageObject, recipe);
-    //             fs.mkdirSync(staticDir + recipeImgDir, { recursive: true });
-    //             fs.writeFileSync(staticDir + newPath, imageData);
-    //             recipe.images.push(imageObject);
-    //         }, recipe, req);
-    //     }
-    // }
 
 
     if (req.body.ingredients !== undefined && req.body.ingredients !== 'undefined') {
@@ -127,8 +87,6 @@ exports.new = function (req, res) {
         }
     }
 
-    console.log(recipe);
-
     recipe.save(function (err) {
         if (err) {
             console.log(err);
@@ -150,10 +108,17 @@ exports.view = function (req, res) {
         if (err) {
             res.json(err);
         } else {
-            res.json({
-                message: "Recipe loading...",
-                data: recipe
-            });
+            if (req.user._id === recipe.user) {
+                res.json({
+                    message: "Recipe loading...",
+                    data: recipe
+                });
+            } else {
+                res.status(403).json({
+                    status: 'error',
+                    message: 'Not authorized to view this recipe!'
+                });
+            }
         }
     });
 }
