@@ -50,12 +50,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 2080 - ((12 * winheight(0) + 6) / 13)
+let s:l = 2173 - ((12 * winheight(0) + 6) / 13)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2080
-normal! 0
+2173
+normal! 059|
 tabedit ./.env.sample
 set splitbelow splitright
 set nosplitbelow
